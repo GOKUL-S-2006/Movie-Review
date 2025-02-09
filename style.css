@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    background-color: #fff;
 }
 
 /* navbar  */
@@ -120,9 +121,6 @@ body{
      }
      .searching-but{
         display: block;
-     }
-     #title{
-        
      }
      #mobileMenu li{
         padding-bottom: 10px;
