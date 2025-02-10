@@ -182,7 +182,7 @@ body{
     box-shadow: 2px 2px 2px #000;
  }
  
- #search-but-mb{
+ #search-box-mb input{
     padding: 8px;
     padding-left: 20%;
     padding-right: 10%;
@@ -221,16 +221,6 @@ body{
     gap: 10px;
   }
   
-  .movie-item {
-    cursor: pointer;
-    width: 150px;
-    text-align: center;
-  }
-  
-  .movie-item img {
-    width: 100%;
-    border-radius: 8px;
-  }
   
   #movie-details {
     position: fixed;
@@ -289,4 +279,39 @@ body{
 .close-btn:hover {
     background: darkred;
 }
+#movie-details{
+    margin-top: 10%;
+}
   
+
+.movie-itemr{
+  display: flex;
+  gap: 10px;
+  
+}
+.movie-container{
+  background-color: aquamarine;
+  margin-left: 40%;
+  margin-right: auto;
+  margin-top: 40px;
+  width: 200px;
+}
+.movie-container img{
+  width: 50%;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+@media  (max-width: 1020px){
+  .movie-item{
+      flex-wrap: wrap;
+  }
+  .movie-container{
+    margin-left: 30%;
+  }
+}
+.mov-tit{
+  padding-right: 10px;
+}

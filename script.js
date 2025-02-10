@@ -54,13 +54,15 @@ function displayMovies(movies) {
     const movieElement = document.createElement("div");
     movieElement.classList.add("movie-item");
     movieElement.innerHTML = `
-      <img src="${IMAGE_BASE_URL + movie.poster_path}" alt="${movie.title}">
-      <p><strong>${movie.title}</strong> - Rating: ${movie.vote_average}</p>
+  
+        <div class="movie-container">
+            <img src="${IMAGE_BASE_URL + movie.poster_path}" alt="${movie.title}">
+            <p class="mov-tit">${movie.title} <br> <span>Rating: ${movie.vote_average}</span></p>
+        </div>
+   
     `;
     movieElement.addEventListener("click", () => showMovieDetails(movie));
     searchResults.appendChild(movieElement);
-    console.log("Movie clicked:", movie.title);
-
   });
 }
 
