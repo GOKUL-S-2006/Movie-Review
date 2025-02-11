@@ -15,7 +15,7 @@ function searchClick() {
     menu.classList.add('hidden');
   }
 }
-
+// fetching movie TMDB
 const API_KEY = 'c11a0d4a35560adb36054f4336403e98';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -43,7 +43,7 @@ async function fetchMovies(query) {
     console.error("Error fetching movie data:", error);
   }
 }
-
+// display Movie search
 function displayMovies(movies) {
   searchResults.innerHTML = "";
   if (movies.length === 0) {
@@ -66,6 +66,7 @@ function displayMovies(movies) {
   });
 }
 
+// movie details after clicking
 function showMovieDetails(movie) {
   let movieDetails = document.getElementById("movie-details");
   if (!movieDetails) {
@@ -75,20 +76,25 @@ function showMovieDetails(movie) {
   }
   
   movieDetails.innerHTML = `
-      <div class="movie-overlay">
-          <button class="close-btn" onclick="closeMovieDetails()">✖</button>
-          <div class="movie-container">
-              <div class="movie-poster">
-                  <img src="${IMAGE_BASE_URL + movie.poster_path}" alt="${movie.title}">
-              </div>
-              <div class="movie-info">
-                  <h2>${movie.title}</h2>
-                  <p><strong>Rating:</strong> ${movie.vote_average}</p>
-                  <p><strong>Release Date:</strong> ${movie.release_date}</p>
-                  <p><strong>Overview:</strong> ${movie.overview}</p>
-              </div>
-          </div>
-      </div>
+     
+    <div class="movie-overlay">
+        <button class="button" id="close-btn" onclick="closeMovieDetails()">
+            <span class="X"></span>
+            <span class="Y"></span>
+            <div class="close">Close</div>
+          </button>
+        <div class="movie-containers">
+            <div class="movie-poster">
+                <img src="${IMAGE_BASE_URL + movie.poster_path}" alt="${movie.title}">
+            </div>
+            <div class="movie-info">
+                <h1>${movie.title}</h1>
+                <p><span >Rating:</span> ${movie.vote_average}</p>
+                <p><span>Release Date:</span> ${movie.release_date}</p>
+                <p><span>Overview:</span> ${movie.overview}</p>
+            </div>
+        </div>
+    </div>
   `;
   
   movieDetails.classList.remove("hidden");
