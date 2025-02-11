@@ -45,6 +45,30 @@
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <script src='https://cdn.jotfor.ms/s/umd/latest/for-embedded-agent.js'></script>
+<script>
+  window.addEventListener("DOMContentLoaded", function() {
+    window.AgentInitializer.init({
+      agentRenderURL: "https://agent.jotform.com/0194f2e40fed70838d50a720cd62d2ebe134",
+      rootId: "JotformAgent-0194f2e40fed70838d50a720cd62d2ebe134",
+      formID: "0194f2e40fed70838d50a720cd62d2ebe134",
+      queryParams: ["skipWelcome=1", "maximizable=1"],
+      domain: "https://www.jotform.com",
+      isDraggable: false,
+      background: "linear-gradient(180deg, #C8CEED 0%, #C8CEED 100%)",
+      buttonBackgroundColor: "#0a1551",
+      buttonIconColor: "#fff",
+      variant: false,
+      customizations: {
+        "greeting": "Yes",
+        "greetingMessage": "Hi! How can i help you?",
+        "pulse": "Yes",
+        "position": "right"
+      },
+      isVoice: undefined
+    });
+  });
+</script>
   </head>
   <body>
     <!-- navbar -->

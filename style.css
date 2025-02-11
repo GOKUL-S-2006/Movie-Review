@@ -231,7 +231,7 @@ input[type=search] {
 
 .movie-overlay {
   display: flex;
-  background: #fff;
+  background: white;
   padding: 20px;
   border-radius: 10px;
   max-width: 80%;
@@ -329,7 +329,6 @@ added styling and animation for nav buttons
 ------------------------------------------------------------------------*/
 
 #list-items li {
-  z-index: 1;
   position: relative;
   font-size: inherit;
   font-family: inherit;
@@ -361,4 +360,5 @@ added styling and animation for nav buttons
 #list-items li:hover::before {
   transform-origin: center left;
   transform: scaleX(1);
+  background-color: white;
 }
