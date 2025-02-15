@@ -571,6 +571,134 @@ added styling and animation for nav buttons
   transform: translateY(30px);
   transition-duration: .3s;
 }
+#upcoming-movies-container {
+  display: flex;
+  overflow-x: auto;  /* Enables horizontal scrolling */
+  gap: 15px;
+  padding: 20px;
+  white-space: nowrap;  /* Prevents wrapping */
+  scroll-behavior: smooth;
+}
+
+/* Hide default scrollbar */
+#upcoming-movies-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+#upcoming-movies-container::-webkit-scrollbar-thumb {
+  background: #00ffff;
+  border-radius: 5px;
+}
+
+#upcoming-movies-container::-webkit-scrollbar-track {
+  background: #222;
+}
+
+.movie-item {
+  flex: 0 0 auto;  /* Prevents shrinking */
+  width: 200px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+
+.movie-item img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.movie-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 1);
+}
+/* Movie Card Styling */
+.movie-item {
+  flex: 0 0 auto;
+  width: 180px;
+  text-align: center;
+  background: none; /* No gray background */
+  padding: 5px;
+  border-radius: 8px;
+}
+
+/* Movie images */
+.movie-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Movie text */
+.movie-item p {
+  font-size: 14px;
+  margin-top: 5px;
+  color: black; 
+  font-weight: bold;
+
+}
+#u {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  padding: 15px 30px;
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.8), 0px 0px 20px rgba(255, 0, 255, 0.8);
+  transition: all 0.4s ease-in-out;
+  animation: neonGlow 1.5s infinite alternate;
+}
+
+@keyframes neonGlow {
+  0% {
+      text-shadow: 0px 0px 15px rgba(0, 255, 255, 0.9), 0px 0px 25px rgba(255, 0, 255, 0.9);
+  }
+  100% {
+      text-shadow: 0px 0px 25px rgba(0, 255, 255, 1), 0px 0px 35px rgba(255, 0, 255, 1);
+  }
+}
+
+#u::before,
+#u::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.8);
+  transition: width 0.4s ease-in-out;
+}
+
+#u::before {
+  left: -80px;
+}
+
+#u::after {
+  right: -80px;
+}
+
+#u:hover {
+  background: linear-gradient(45deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 0px 20px rgba(255, 0, 255, 1), 0px 0px 30px rgba(0, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+#u:hover::before,
+#u:hover::after {
+  width: 90px;
+}
+
 
 
 
