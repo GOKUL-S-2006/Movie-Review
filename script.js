@@ -9,12 +9,57 @@ document.body.appendChild(searchResults);
 
 let favoriteMovies = JSON.parse(localStorage.getItem("favorites")) || [];
 
+// Upcoming movies section
+var upcomingMoviesSection = document.createElement("div");
+upcomingMoviesSection.id = "upcoming-movies";
+document.body.appendChild(upcomingMoviesSection);
+if(window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+  // Upcoming movies section
+  var upcomingMoviesSection = document.createElement("div");
+  upcomingMoviesSection.id = "upcoming-movies";
+  document.body.appendChild(upcomingMoviesSection);
+
+  fetchUpcomingMovies();
+}
+
+async function fetchUpcomingMovies() {
+  try {
+    const response = await fetch(`${BASE_URL}/movie/upcoming?api_key=${API_KEY}`);
+    const data = await response.json();
+    displayUpcomingMovies(data.results);
+  } catch (error) {
+    console.error("Error fetching upcoming movies:", error);
+  }
+}
+
+function displayUpcomingMovies(movies) {
+  upcomingMoviesSection.innerHTML = `
+    <h2 id="u" >Upcoming Movies</h2>
+    <div id="upcoming-movies-container"></div>
+  `;
+
+  const container = document.getElementById("upcoming-movies-container");
+
+  movies.forEach(movie => {
+    const movieElement = document.createElement("div");
+    movieElement.classList.add("movie-item");
+    movieElement.innerHTML = `
+      <img src="${IMAGE_BASE_URL + movie.poster_path}" alt="${movie.title}">
+      <p><strong>${movie.title}</strong></p>
+    `;
+    container.appendChild(movieElement);
+  });
+}
+
+
 searchInput.addEventListener("input", function() {
   let query = searchInput.value.trim();
   if (query.length > 0) {
+    upcomingMoviesSection.style.display = "none";
     fetchMovies(query);
   } else {
     searchResults.innerHTML = "";
+    upcomingMoviesSection.style.display = "block";
   }
 });
 
@@ -40,7 +85,7 @@ function displayMovies(movies) {
     movieElement.innerHTML = `
       <img src="${IMAGE_BASE_URL + movie.poster_path}" alt="${movie.title}">
       <p><strong>${movie.title}</strong> - Rating: ${movie.vote_average}</p>
-      <button onclick="addToFavorites(${movie.id}, '${movie.title}', '${movie.poster_path}', ${movie.vote_average})">❤️ Add to Favorites</button>
+      <button onclick="addToFavorites(${movie.id}, '${movie.title}', '${movie.poster_path}', ${movie.vote_average})">❤️</button>
     `;
     movieElement.addEventListener("click", () => showMovieDetails(movie));
     searchResults.appendChild(movieElement);
@@ -92,14 +137,10 @@ function addToFavorites(id, title, posterPath, rating) {
   }
 }
 
-
 function removeFav(encodedTitle) {
-  let title = decodeURIComponent(encodedTitle); // Decode the title
+  let title = decodeURIComponent(encodedTitle);
   let favoriteMovies = JSON.parse(localStorage.getItem("favorites")) || [];
-
   favoriteMovies = favoriteMovies.filter(movie => movie.title !== title);
   localStorage.setItem("favorites", JSON.stringify(favoriteMovies));
   loadFavorites();
-  
 }
-
