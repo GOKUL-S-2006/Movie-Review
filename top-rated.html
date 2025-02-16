@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,42 +7,16 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-black text-white">
+<body class="bg-gray-900 text-white">
     
     <!-- Navigation Back to Home -->
     <nav class="p-4 bg-gray-800">
         <a href="index.html" >
             <!-- From Uiverse.io by karthik092726122003 --> 
-<div class="styled-wrapper">
-    <button class="button">
-      <div class="button-box">
-        <span class="button-elem">
-          <svg
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            class="arrow-icon"
-          >
-            <path
-              fill="black"
-              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-            ></path>
-          </svg>
-        </span>
-        <span class="button-elem">
-          <svg
-            fill="black"
-            viewBox="0 0  24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            class="arrow-icon"
-          >
-            <path
-              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-            ></path>
-          </svg>
-        </span>
-      </div>
-    </button>
-  </div>
+            <button class="button">
+              <span class="X"></span>
+              <span class="Y"></span>
+            </button>
   
         </a>
     </nav>
@@ -56,3 +30,48 @@
 
 </body>
 </html>
+<style>
+.button {
+  position: relative;
+  width: 6em;
+  height: 4em;
+  border: none;
+  background: none;
+}
+
+.X {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  width: 2em;
+  height: 1.5px;
+  background-color: #fff;
+  transform: rotate(45deg);
+}
+
+.Y {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  width: 2em;
+  height: 1.5px;
+  background-color: #fff;
+  transform: rotate(-45deg);
+}
+
+.button:hover {
+  background-color: rgb(210, 0, 0);
+}
+
+.button:active {
+  background-color: rgb(130, 0, 0);
+}
+
+@keyframes close {
+  100% {
+    opacity: 1;
+  }
+}
+</style>
