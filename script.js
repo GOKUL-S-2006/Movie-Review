@@ -1,3 +1,25 @@
+
+
+function menuClick() {
+  var menu = document.getElementById('mobileMenu');
+  if (menu.classList.contains('hidden')) {
+    menu.classList.remove('hidden');
+  } else {
+    menu.classList.add('hidden');
+  }
+}
+var icon =document.getElementById("iconn");
+function themechange(){
+  document.body.classList.toggle("dark-theme");
+  if(document.body.classList.contains("dark-theme")){
+    icon.src="sunn.png";
+  }
+  else{
+    icon.src="moonn.png";
+  }
+
+}
+
 const API_KEY = 'c11a0d4a35560adb36054f4336403e98';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -42,7 +64,7 @@ function displayUpcomingMovies(movies) {
 
   movies.forEach(movie => {
     const movieElement = document.createElement("div");
-    movieElement.classList.add("movie-item");
+    movieElement.classList.add("movie-item-up");
     movieElement.innerHTML = `
       <img src="${IMAGE_BASE_URL + movie.poster_path}" alt="${movie.title}">
       <p><strong>${movie.title}</strong></p>
@@ -72,7 +94,7 @@ async function fetchMovies(query) {
     console.error("Error fetching movie data:", error);
   }
 }
-
+// searching movie display
 function displayMovies(movies) {
   searchResults.innerHTML = "";
   if (movies.length === 0) {
@@ -84,14 +106,14 @@ function displayMovies(movies) {
     movieElement.classList.add("movie-item");
     movieElement.innerHTML = `
       <img src="${IMAGE_BASE_URL + movie.poster_path}" alt="${movie.title}">
-      <p><strong>${movie.title}</strong> - Rating: ${movie.vote_average}</p>
-      <button onclick="addToFavorites(${movie.id}, '${movie.title}', '${movie.poster_path}', ${movie.vote_average})">❤️</button>
+      <p><strong>${movie.title}</strong> <br> Rating: ${movie.vote_average}</p>
+      <center> <button onclick="addToFavorites(${movie.id}, '${movie.title}', '${movie.poster_path}', ${movie.vote_average})">❤️ Add to Fav</button></center>
     `;
     movieElement.addEventListener("click", () => showMovieDetails(movie));
     searchResults.appendChild(movieElement);
   });
 }
-
+// movie details after clicking
 function showMovieDetails(movie) {
   let movieDetails = document.getElementById("movie-details");
   if (!movieDetails) {

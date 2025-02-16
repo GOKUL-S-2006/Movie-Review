@@ -48,29 +48,10 @@ function displayMovies(movies) {
             </div>
 
             <!-- Heart Button -->
-            <button class="absolute top-2 right-2 text-2xl" onclick="toggleFavorite(${movie.id}, '${movie.title}', '${movie.poster_path}', ${movie.vote_average}, '${movie.release_date}')">
-                ❤️
-            </button>
+           
         `;
 
         container.appendChild(movieCard);
     });
-}
-function toggleFavorite(id, title, poster, rating, releaseDate) {
-    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-    const index = favorites.findIndex(movie => movie.id === id);
-
-    if (index === -1) {
-        // Add to favorites
-        favorites.push({ id, title, poster, rating, releaseDate });
-        alert(`${title} added to Favorites ❤️`);
-    } else {
-        // Remove from favorites
-        favorites.splice(index, 1);
-        alert(`${title} removed from Favorites ❌`);
-    }
-
-    localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 

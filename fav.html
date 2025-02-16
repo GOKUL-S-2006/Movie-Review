@@ -8,29 +8,14 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
-<body class="bg-black text-white">
+<body class="bg-gray-900 text-white">
 
     <nav class="p-4 bg-gray-800">
         <a href="index.html">
-            <div class="styled-wrapper">
-                <button class="button">
-                  <div class="button-box">
-                    <span class="button-elem">
-                      <svg
-                        fill="black"
-                        viewBox="0 0  24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="arrow-icon"
-                      >
-                        <path
-                          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                        ></path>
-                      </svg>
-                    </span>
-                  </div>
-                </button>
-              </div>
-              
+          <button class="button">
+            <span class="X"></span>
+            <span class="Y"></span>
+          </button>
         </a>
     </nav>
 
@@ -59,11 +44,31 @@
                 
             </div>
             
-            <button class="button" onclick="removeFav('${movie.title}')">
-                <svg viewBox="0 0 448 512" class="svgIcon">
-                    <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
-                </svg>
-            </button>
+            <button class="deleteButton" onclick="removeFav('${movie.title}')">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 50 59"
+    class="bin"
+  >
+    <path
+      fill="#B5BAC1"
+      d="M0 7.5C0 5.01472 2.01472 3 4.5 3H45.5C47.9853 3 50 5.01472 50 7.5V7.5C50 8.32843 49.3284 9 48.5 9H1.5C0.671571 9 0 8.32843 0 7.5V7.5Z"
+    ></path>
+    <path
+      fill="#B5BAC1"
+      d="M17 3C17 1.34315 18.3431 0 20 0H29.3125C30.9694 0 32.3125 1.34315 32.3125 3V3H17V3Z"
+    ></path>
+    <path
+      fill="#B5BAC1"
+      d="M2.18565 18.0974C2.08466 15.821 3.903 13.9202 6.18172 13.9202H43.8189C46.0976 13.9202 47.916 15.821 47.815 18.0975L46.1699 55.1775C46.0751 57.3155 44.314 59.0002 42.1739 59.0002H7.8268C5.68661 59.0002 3.92559 57.3155 3.83073 55.1775L2.18565 18.0974ZM18.0003 49.5402C16.6196 49.5402 15.5003 48.4209 15.5003 47.0402V24.9602C15.5003 23.5795 16.6196 22.4602 18.0003 22.4602C19.381 22.4602 20.5003 23.5795 20.5003 24.9602V47.0402C20.5003 48.4209 19.381 49.5402 18.0003 49.5402ZM29.5003 47.0402C29.5003 48.4209 30.6196 49.5402 32.0003 49.5402C33.381 49.5402 34.5003 48.4209 34.5003 47.0402V24.9602C34.5003 23.5795 33.381 22.4602 32.0003 22.4602C30.6196 22.4602 29.5003 23.5795 29.5003 24.9602V47.0402Z"
+      clip-rule="evenodd"
+      fill-rule="evenodd"
+    >
+  </svg>
+
+</button>
+
         </div>
     `;
     container.innerHTML += movieCard;
@@ -77,3 +82,83 @@
 
 </body>
 </html>
+<style>
+.deleteButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.deleteButton svg {
+  width: 44%;
+}
+.deleteButton:hover {
+  background-color: rgb(237, 56, 56);
+  overflow: visible;
+}
+.bin path {
+  transition: all 0.2s;
+}
+.deleteButton:hover .bin path {
+  fill: #fff;
+}
+.deleteButton:active {
+  transform: scale(0.98);
+}
+
+
+
+.button {
+  position: relative;
+  width: 6em;
+  height: 4em;
+  border: none;
+  background: none;
+}
+
+.X {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  width: 2em;
+  height: 1.5px;
+  background-color: #fff;
+  transform: rotate(45deg);
+}
+
+.Y {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  width: 2em;
+  height: 1.5px;
+  background-color: #fff;
+  transform: rotate(-45deg);
+}
+
+.button:hover {
+  background-color: rgb(210, 0, 0);
+}
+
+.button:active {
+  background-color: rgb(130, 0, 0);
+}
+
+@keyframes close {
+  100% {
+    opacity: 1;
+  }
+}
+</style>
