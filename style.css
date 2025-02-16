@@ -585,7 +585,11 @@ transform: scale(1.05);
 box-shadow: 0 0 20px rgba(0, 255, 255, 1);
 }
 .movie-item button{
-  padding-bottom: 10px;
+  margin-bottom: 15px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 2px solid #111;
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1); 
 }
 /* dark theme mb off */
 @media  (max-width: 900px){
