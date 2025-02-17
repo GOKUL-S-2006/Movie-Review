@@ -107,7 +107,7 @@ function displayMovies(movies) {
     movieElement.innerHTML = `
       <img src="${IMAGE_BASE_URL + movie.poster_path}" alt="${movie.title}">
       <p><strong>${movie.title}</strong> <br> Rating: ${movie.vote_average}</p>
-      <center> <button onclick="addToFavorites(${movie.id}, '${movie.title}', '${movie.poster_path}', ${movie.vote_average})" style="">❤️ Add to Fav</button></center>
+      <center> <button onclick="addToFavorites(${movie.id}, '${movie.title}', '${movie.poster_path}', ${movie.vote_average})" style="border-radius:20px">❤️ Add to Fav</button></center>
     `;
     movieElement.addEventListener("click", () => showMovieDetails(movie));
     searchResults.appendChild(movieElement);
